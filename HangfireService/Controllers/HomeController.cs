@@ -44,12 +44,23 @@ namespace HangfireService.Controllers
         /// <summary>
         /// вызываем отложенное задание
         /// </summary>
-        /// <returns></returns>
-        public ActionResult Job()
+        /// <param name="minutesAmount">на сколько минут отложить задачу</param>
+        /// <returns>Job identifier</returns>
+        public ActionResult Job(int minutesAmount)
         {
-            var callTime = _fileBackgroundJob.DelayedCreation();
-
-            return Content(callTime);
+            return Content(_fileBackgroundJob.DelayedCreation(minutesAmount));
         }
+
+        /// <summary>
+        /// Удалить отложенную задачу
+        /// </summary>
+        /// <param name="jobId">идентификатор задачи</param>
+        /// <returns>True on a successfull state transition, false otherwise.</returns>
+        public ActionResult RemoveJob(string jobId)
+        {
+            return Content(_fileBackgroundJob.RemoveDelayedJob(jobId) ? "Successfuly deleted" : "Some problem happend during deletion");
+        }
+
+
     }
 }

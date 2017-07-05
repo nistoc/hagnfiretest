@@ -8,12 +8,21 @@ namespace HangfireService.Services
         /// <summary>
         /// Вызываем отложенное создание файла
         /// </summary>
-        /// <returns></returns>
-        public string DelayedCreation()
+        /// <param name="minutesAmount">на сколько минут отложить задачу</param>
+        /// <returns>Job identifier</returns>
+        public string DelayedCreation(int minutesAmount)
         {
-            var callTime = DateTime.UtcNow.ToLongTimeString();
-            BackgroundJob.Schedule(() => FilesService.CreateFile(callTime), TimeSpan.FromMinutes(1));
-            return callTime;
+            return BackgroundJob.Schedule(() => FilesService.CreateFile(DateTime.UtcNow.ToLongTimeString()), TimeSpan.FromMinutes(minutesAmount));
+        }
+
+        /// <summary>
+        /// Удалить отложенную задачу
+        /// </summary>
+        /// <param name="jobId">идентификатор задачи</param>
+        /// <returns>True on a successfull state transition, false otherwise.</returns>
+        public bool RemoveDelayedJob(string jobId)
+        {
+            return BackgroundJob.Delete(jobId);
         }
     }
 }

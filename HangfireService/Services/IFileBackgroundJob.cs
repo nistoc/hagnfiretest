@@ -5,7 +5,15 @@
         /// <summary>
         /// Вызываем отложенное создание файла
         /// </summary>
-        /// <returns>время создания файла</returns>
-        string DelayedCreation();
+        /// <param name="minutesAmount">на сколько минут отложить задачу</param>
+        /// <returns>идентификатор задачи</returns>
+        string DelayedCreation(int minutesAmount);
+
+        /// <summary>
+        /// Удалить отложенную задачу
+        /// </summary>
+        /// <param name="jobId">идентификатор задачи</param>
+        /// <returns>True on a successfull state transition, false otherwise.</returns>
+        bool RemoveDelayedJob(string jobId);
     }
 }
