@@ -1,7 +1,48 @@
 {
   "version": 2,
   "targets": {
-    ".NETFramework,Version=v4.6.2": {
+    ".NETFramework,Version=v4.6.1": {
+      "Hangfire/1.6.14": {
+        "type": "package",
+        "dependencies": {
+          "Hangfire.Core": "[1.6.14]",
+          "Hangfire.SqlServer": "[1.6.14]",
+          "Microsoft.Owin.Host.SystemWeb": "3.0.0"
+        }
+      },
+      "Hangfire.Core/1.6.14": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "5.0.0",
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Hangfire.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Hangfire.Core.dll": {}
+        },
+        "resource": {
+          "lib/net45/es/Hangfire.Core.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net45/zh/Hangfire.Core.resources.dll": {
+            "locale": "zh"
+          }
+        }
+      },
+      "Hangfire.SqlServer/1.6.14": {
+        "type": "package",
+        "dependencies": {
+          "Hangfire.Core": "[1.6.14]"
+        },
+        "compile": {
+          "lib/net45/Hangfire.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Hangfire.SqlServer.dll": {}
+        }
+      },
       "Libuv/1.9.1": {
         "type": "package",
         "dependencies": {
@@ -1297,6 +1338,31 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.Owin/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        }
+      },
+      "Microsoft.Owin.Host.SystemWeb/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Owin": "3.0.0",
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.Host.SystemWeb.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.Host.SystemWeb.dll": {}
+        }
+      },
       "Microsoft.VisualStudio.Web.BrowserLink/1.1.2": {
         "type": "package",
         "dependencies": {
@@ -1383,6 +1449,15 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "Owin/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Owin.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1438,19 +1513,6 @@
           "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.dll": {}
         }
       },
-      "System.Collections.NonGeneric/4.3.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System",
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net46/System.Collections.NonGeneric.dll": {}
-        },
-        "runtime": {
-          "lib/net46/System.Collections.NonGeneric.dll": {}
-        }
-      },
       "System.ComponentModel/4.3.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1479,7 +1541,6 @@
       "System.ComponentModel.TypeConverter/4.3.0": {
         "type": "package",
         "dependencies": {
-          "System.Collections.NonGeneric": "4.3.0",
           "System.ComponentModel.Primitives": "4.3.0"
         },
         "frameworkAssemblies": [
@@ -1487,10 +1548,10 @@
           "mscorlib"
         ],
         "compile": {
-          "ref/net462/System.ComponentModel.TypeConverter.dll": {}
+          "ref/net45/System.ComponentModel.TypeConverter.dll": {}
         },
         "runtime": {
-          "lib/net462/System.ComponentModel.TypeConverter.dll": {}
+          "lib/net45/System.ComponentModel.TypeConverter.dll": {}
         }
       },
       "System.Console/4.3.0": {
@@ -1584,14 +1645,11 @@
       },
       "System.Diagnostics.Tracing/4.3.0": {
         "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
         "compile": {
-          "ref/net462/System.Diagnostics.Tracing.dll": {}
+          "ref/net45/_._": {}
         },
         "runtime": {
-          "lib/net462/System.Diagnostics.Tracing.dll": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Dynamic.Runtime/4.0.11": {
@@ -1630,14 +1688,13 @@
       "System.IO/4.3.0": {
         "type": "package",
         "frameworkAssemblies": [
-          "System",
-          "mscorlib"
+          "System"
         ],
         "compile": {
-          "ref/net462/System.IO.dll": {}
+          "ref/net45/_._": {}
         },
         "runtime": {
-          "lib/net462/System.IO.dll": {}
+          "lib/net45/_._": {}
         }
       },
       "System.IO.Compression/4.3.0": {
@@ -1803,14 +1860,11 @@
       },
       "System.Reflection/4.3.0": {
         "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
         "compile": {
-          "ref/net462/System.Reflection.dll": {}
+          "ref/net45/_._": {}
         },
         "runtime": {
-          "lib/net462/System.Reflection.dll": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Reflection.Emit/4.0.1": {
@@ -1875,14 +1929,13 @@
         "frameworkAssemblies": [
           "System",
           "System.ComponentModel.Composition",
-          "System.Core",
-          "mscorlib"
+          "System.Core"
         ],
         "compile": {
-          "ref/net462/System.Runtime.dll": {}
+          "ref/net45/_._": {}
         },
         "runtime": {
-          "lib/net462/System.Runtime.dll": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/4.3.0": {
@@ -1897,14 +1950,13 @@
       "System.Runtime.Extensions/4.3.0": {
         "type": "package",
         "frameworkAssemblies": [
-          "System",
-          "mscorlib"
+          "System"
         ],
         "compile": {
-          "ref/net462/System.Runtime.Extensions.dll": {}
+          "ref/net45/_._": {}
         },
         "runtime": {
-          "lib/net462/System.Runtime.Extensions.dll": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime.Handles/4.3.0": {
@@ -1921,19 +1973,15 @@
       },
       "System.Runtime.InteropServices/4.3.0": {
         "type": "package",
-        "dependencies": {
-          "System.Runtime": "4.3.0"
-        },
         "frameworkAssemblies": [
           "System",
-          "System.Core",
-          "mscorlib"
+          "System.Core"
         ],
         "compile": {
-          "ref/net462/System.Runtime.InteropServices.dll": {}
+          "ref/net45/_._": {}
         },
         "runtime": {
-          "lib/net462/System.Runtime.InteropServices.dll": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime.InteropServices.RuntimeInformation/4.3.0": {
@@ -2239,7 +2287,48 @@
         }
       }
     },
-    ".NETFramework,Version=v4.6.2/win7-x86": {
+    ".NETFramework,Version=v4.6.1/win7-x86": {
+      "Hangfire/1.6.14": {
+        "type": "package",
+        "dependencies": {
+          "Hangfire.Core": "[1.6.14]",
+          "Hangfire.SqlServer": "[1.6.14]",
+          "Microsoft.Owin.Host.SystemWeb": "3.0.0"
+        }
+      },
+      "Hangfire.Core/1.6.14": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "5.0.0",
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Hangfire.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Hangfire.Core.dll": {}
+        },
+        "resource": {
+          "lib/net45/es/Hangfire.Core.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net45/zh/Hangfire.Core.resources.dll": {
+            "locale": "zh"
+          }
+        }
+      },
+      "Hangfire.SqlServer/1.6.14": {
+        "type": "package",
+        "dependencies": {
+          "Hangfire.Core": "[1.6.14]"
+        },
+        "compile": {
+          "lib/net45/Hangfire.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Hangfire.SqlServer.dll": {}
+        }
+      },
       "Libuv/1.9.1": {
         "type": "package",
         "dependencies": {
@@ -3504,6 +3593,31 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.Owin/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        }
+      },
+      "Microsoft.Owin.Host.SystemWeb/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Owin": "3.0.0",
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.Host.SystemWeb.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.Host.SystemWeb.dll": {}
+        }
+      },
       "Microsoft.VisualStudio.Web.BrowserLink/1.1.2": {
         "type": "package",
         "dependencies": {
@@ -3590,6 +3704,15 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "Owin/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Owin.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -3645,19 +3768,6 @@
           "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.dll": {}
         }
       },
-      "System.Collections.NonGeneric/4.3.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System",
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net46/System.Collections.NonGeneric.dll": {}
-        },
-        "runtime": {
-          "lib/net46/System.Collections.NonGeneric.dll": {}
-        }
-      },
       "System.ComponentModel/4.3.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -3686,7 +3796,6 @@
       "System.ComponentModel.TypeConverter/4.3.0": {
         "type": "package",
         "dependencies": {
-          "System.Collections.NonGeneric": "4.3.0",
           "System.ComponentModel.Primitives": "4.3.0"
         },
         "frameworkAssemblies": [
@@ -3694,10 +3803,10 @@
           "mscorlib"
         ],
         "compile": {
-          "ref/net462/System.ComponentModel.TypeConverter.dll": {}
+          "ref/net45/System.ComponentModel.TypeConverter.dll": {}
         },
         "runtime": {
-          "lib/net462/System.ComponentModel.TypeConverter.dll": {}
+          "lib/net45/System.ComponentModel.TypeConverter.dll": {}
         }
       },
       "System.Console/4.3.0": {
@@ -3781,14 +3890,11 @@
       },
       "System.Diagnostics.Tracing/4.3.0": {
         "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
         "compile": {
-          "ref/net462/System.Diagnostics.Tracing.dll": {}
+          "ref/net45/_._": {}
         },
         "runtime": {
-          "lib/net462/System.Diagnostics.Tracing.dll": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Dynamic.Runtime/4.0.11": {
@@ -3827,14 +3933,13 @@
       "System.IO/4.3.0": {
         "type": "package",
         "frameworkAssemblies": [
-          "System",
-          "mscorlib"
+          "System"
         ],
         "compile": {
-          "ref/net462/System.IO.dll": {}
+          "ref/net45/_._": {}
         },
         "runtime": {
-          "lib/net462/System.IO.dll": {}
+          "lib/net45/_._": {}
         }
       },
       "System.IO.Compression/4.3.0": {
@@ -3984,14 +4089,11 @@
       },
       "System.Reflection/4.3.0": {
         "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
         "compile": {
-          "ref/net462/System.Reflection.dll": {}
+          "ref/net45/_._": {}
         },
         "runtime": {
-          "lib/net462/System.Reflection.dll": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Reflection.Emit/4.0.1": {
@@ -4056,14 +4158,13 @@
         "frameworkAssemblies": [
           "System",
           "System.ComponentModel.Composition",
-          "System.Core",
-          "mscorlib"
+          "System.Core"
         ],
         "compile": {
-          "ref/net462/System.Runtime.dll": {}
+          "ref/net45/_._": {}
         },
         "runtime": {
-          "lib/net462/System.Runtime.dll": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/4.3.0": {
@@ -4078,14 +4179,13 @@
       "System.Runtime.Extensions/4.3.0": {
         "type": "package",
         "frameworkAssemblies": [
-          "System",
-          "mscorlib"
+          "System"
         ],
         "compile": {
-          "ref/net462/System.Runtime.Extensions.dll": {}
+          "ref/net45/_._": {}
         },
         "runtime": {
-          "lib/net462/System.Runtime.Extensions.dll": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime.Handles/4.3.0": {
@@ -4102,19 +4202,15 @@
       },
       "System.Runtime.InteropServices/4.3.0": {
         "type": "package",
-        "dependencies": {
-          "System.Runtime": "4.3.0"
-        },
         "frameworkAssemblies": [
           "System",
-          "System.Core",
-          "mscorlib"
+          "System.Core"
         ],
         "compile": {
-          "ref/net462/System.Runtime.InteropServices.dll": {}
+          "ref/net45/_._": {}
         },
         "runtime": {
-          "lib/net462/System.Runtime.InteropServices.dll": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime.InteropServices.RuntimeInformation/4.3.0": {
@@ -4380,6 +4476,47 @@
     }
   },
   "libraries": {
+    "Hangfire/1.6.14": {
+      "sha512": "BFvPDBvm77tfs6uiP3hE23LpwRwhsSdySAH6B020Crc8wLclfhKjnrsRTSQHsqWCsSJZ6U77CkJzwEj0zhWVlw==",
+      "type": "package",
+      "path": "hangfire/1.6.14",
+      "files": [
+        "hangfire.1.6.14.nupkg.sha512",
+        "hangfire.nuspec",
+        "readme.txt"
+      ]
+    },
+    "Hangfire.Core/1.6.14": {
+      "sha512": "GZn0o9z6ni9BfqADGsXFYR2WoMH+xeis1DVn1cxGAh2UdhHRLHMQQW45ZmraRWekweZRjegZ6+tOBKMSZyq4ZQ==",
+      "type": "package",
+      "path": "hangfire.core/1.6.14",
+      "files": [
+        "hangfire.core.1.6.14.nupkg.sha512",
+        "hangfire.core.nuspec",
+        "lib/net45/Hangfire.Core.dll",
+        "lib/net45/Hangfire.Core.xml",
+        "lib/net45/es/Hangfire.Core.resources.dll",
+        "lib/net45/zh/Hangfire.Core.resources.dll",
+        "lib/netstandard1.3/Hangfire.Core.dll",
+        "lib/netstandard1.3/Hangfire.Core.xml",
+        "lib/netstandard1.3/es/Hangfire.Core.resources.dll",
+        "lib/netstandard1.3/zh/Hangfire.Core.resources.dll"
+      ]
+    },
+    "Hangfire.SqlServer/1.6.14": {
+      "sha512": "5+2fMBl3fCytUgSCJICdg+9JqZ4iJ85eZ88eIOFXIiDwJ6+vIk1bPksEIeZn3m39R12kQ3Kws7KnXx1iEcyG8g==",
+      "type": "package",
+      "path": "hangfire.sqlserver/1.6.14",
+      "files": [
+        "hangfire.sqlserver.1.6.14.nupkg.sha512",
+        "hangfire.sqlserver.nuspec",
+        "lib/net45/Hangfire.SqlServer.dll",
+        "lib/net45/Hangfire.SqlServer.xml",
+        "lib/netstandard1.3/Hangfire.SqlServer.dll",
+        "lib/netstandard1.3/Hangfire.SqlServer.xml",
+        "tools/install.sql"
+      ]
+    },
     "Libuv/1.9.1": {
       "sha512": "uqX2Frwf9PW8MaY7PRNY6HM5BpW1D8oj1EdqzrmbEFD5nH63Yat3aEjN/tws6Tw6Fk7LwmLBvtUh32tTeTaHiA==",
       "type": "package",
@@ -5497,6 +5634,28 @@
         "runtime.json"
       ]
     },
+    "Microsoft.Owin/3.0.0": {
+      "sha512": "SpMoiTFNsfzlo4VFYVtlErbBpm84pNVnhAbihzm1JCaXs7VfHqs/MEXEJ4Xtr1jXEp2hyKYpno8v8P58KTZVEA==",
+      "type": "package",
+      "path": "microsoft.owin/3.0.0",
+      "files": [
+        "lib/net45/Microsoft.Owin.XML",
+        "lib/net45/Microsoft.Owin.dll",
+        "microsoft.owin.3.0.0.nupkg.sha512",
+        "microsoft.owin.nuspec"
+      ]
+    },
+    "Microsoft.Owin.Host.SystemWeb/3.0.0": {
+      "sha512": "MK7tSToRPgLgPpBXczM7bq1Z93yvPTuwkYwHMRKnwLwXX1+4phK/JqyAGPoHKIxZLiMOmY6J+KEDCRtJq7HiSg==",
+      "type": "package",
+      "path": "microsoft.owin.host.systemweb/3.0.0",
+      "files": [
+        "lib/net45/Microsoft.Owin.Host.SystemWeb.dll",
+        "lib/net45/Microsoft.Owin.Host.SystemWeb.xml",
+        "microsoft.owin.host.systemweb.3.0.0.nupkg.sha512",
+        "microsoft.owin.host.systemweb.nuspec"
+      ]
+    },
     "Microsoft.VisualStudio.Web.BrowserLink/1.1.2": {
       "sha512": "QOu+6RH3j+ncittuC5iZNAhOWyYy1BqVb7KPzeRk/s94Yl23+TOUqzH7NBdchObenhGqmFXT654VJEdSF1JERQ==",
       "type": "package",
@@ -5579,6 +5738,16 @@
         "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "tools/install.ps1"
+      ]
+    },
+    "Owin/1.0.0": {
+      "sha512": "OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
+      "type": "package",
+      "path": "owin/1.0.0",
+      "files": [
+        "lib/net40/Owin.dll",
+        "owin.1.0.0.nupkg.sha512",
+        "owin.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -5792,43 +5961,6 @@
         "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.xml",
         "system.collections.immutable.1.3.0.nupkg.sha512",
         "system.collections.immutable.nuspec"
-      ]
-    },
-    "System.Collections.NonGeneric/4.3.0": {
-      "sha512": "prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==",
-      "type": "package",
-      "path": "system.collections.nongeneric/4.3.0",
-      "files": [
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net46/System.Collections.NonGeneric.dll",
-        "lib/netstandard1.3/System.Collections.NonGeneric.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net46/System.Collections.NonGeneric.dll",
-        "ref/netstandard1.3/System.Collections.NonGeneric.dll",
-        "ref/netstandard1.3/System.Collections.NonGeneric.xml",
-        "ref/netstandard1.3/de/System.Collections.NonGeneric.xml",
-        "ref/netstandard1.3/es/System.Collections.NonGeneric.xml",
-        "ref/netstandard1.3/fr/System.Collections.NonGeneric.xml",
-        "ref/netstandard1.3/it/System.Collections.NonGeneric.xml",
-        "ref/netstandard1.3/ja/System.Collections.NonGeneric.xml",
-        "ref/netstandard1.3/ko/System.Collections.NonGeneric.xml",
-        "ref/netstandard1.3/ru/System.Collections.NonGeneric.xml",
-        "ref/netstandard1.3/zh-hans/System.Collections.NonGeneric.xml",
-        "ref/netstandard1.3/zh-hant/System.Collections.NonGeneric.xml",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.collections.nongeneric.4.3.0.nupkg.sha512",
-        "system.collections.nongeneric.nuspec"
       ]
     },
     "System.ComponentModel/4.3.0": {
@@ -8938,7 +9070,8 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v4.6.2": [
+    ".NETFramework,Version=v4.6.1": [
+      "Hangfire >= 1.6.14",
       "Microsoft.ApplicationInsights.AspNetCore >= 2.0.0",
       "Microsoft.AspNetCore >= 1.1.2",
       "Microsoft.AspNetCore.Mvc >= 1.1.3",
@@ -8959,16 +9092,16 @@
       "outputPath": "E:\\gitbranches\\hangfiretest\\HangFire.CreateDB\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
-        "net462"
+        "net461"
       ],
       "frameworks": {
-        "net462": {
+        "net461": {
           "projectReferences": {}
         }
       }
     },
     "frameworks": {
-      "net462": {
+      "net461": {
         "dependencies": {
           "Microsoft.AspNetCore": {
             "target": "Package",
@@ -8985,6 +9118,10 @@
           "Microsoft.AspNetCore.Mvc": {
             "target": "Package",
             "version": "1.1.3"
+          },
+          "Hangfire": {
+            "target": "Package",
+            "version": "1.6.14"
           },
           "Microsoft.ApplicationInsights.AspNetCore": {
             "target": "Package",
