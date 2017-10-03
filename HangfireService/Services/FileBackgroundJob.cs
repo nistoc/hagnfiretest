@@ -16,6 +16,16 @@ namespace HangfireService.Services
         }
 
         /// <summary>
+        /// Вызываем отложенное создание файла. В требуемое время Job вызовет метод нужного класса.
+        /// </summary>
+        /// <param name="minutesAmount">на сколько минут отложить задачу</param>
+        /// <returns>Job identifier</returns>
+        public string DelayedCreationNonStatic(int minutesAmount)
+        {
+            return BackgroundJob.Schedule(() => FilesService.CreateFile(DateTime.UtcNow.ToLongTimeString()), TimeSpan.FromMinutes(minutesAmount));
+        }
+
+        /// <summary>
         /// Удалить отложенную задачу
         /// </summary>
         /// <param name="jobId">идентификатор задачи</param>
